@@ -1,0 +1,41 @@
+{
+  "id": "circle-demo",
+  "version": 1,
+  "entry": "circle.html",
+
+  "integrity": {
+    "algo": "sha256",
+    "html": "__PUT_SHA256_OF_circle.html_HERE__"
+  },
+
+  "api": {
+    "readyCheck": "typeof window.renderCircle === 'function'",
+    "init": {
+      "call": "window.renderCircle",
+      "args": [
+        { "name": "radius", "type": "number", "required": true },
+        { "name": "color", "type": "string", "required": true }
+      ]
+    },
+    "actions": [
+      {
+        "id": "leftRight",
+        "label": "Left → Right",
+        "call": "window.startLeftRight",
+        "args": [{ "name": "speed", "type": "number", "required": true }]
+      },
+      {
+        "id": "upDown",
+        "label": "Up ↓ Down",
+        "call": "window.startUpDown",
+        "args": [{ "name": "speed", "type": "number", "required": true }]
+      },
+      {
+        "id": "stop",
+        "label": "Stop",
+        "call": "window.stopAnimation",
+        "args": []
+      }
+    ]
+  }
+}
